@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: deploy-test01
 spec:
-  replicas: 3
+  replicas: 5
   selector:
     matchLabels:
       app.kubernetes.io/name: web-deploy
@@ -14,4 +14,4 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: kangdaeyoung/project1:blue
+        image: nginx

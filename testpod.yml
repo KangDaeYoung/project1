@@ -1,0 +1,26 @@
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: jenkinstestpod
+  labels:
+    app: myapp
+spec:
+  containers:
+  - name: nginx-ctn
+    image: kangdaeyoung/project1:test
+    ports:
+    - containerPort: 80
+
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: jenkins-svc
+spec:
+  selector:
+    app: myapp
+  ports:
+  - port:  80
+    targetPort:  80
+  type: LoadBalancer
